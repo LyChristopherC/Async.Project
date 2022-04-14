@@ -1,35 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import Locate from 'leaflet.locatecontrol';
+import LocationMarker from './geolocate';
 
-class Map extends React.Component {
-  componentDidMount() {
-    // Create map using mapbox tile layer. Replace Access Token with your access token.
-    let map = L.map('map').setView([51.505, -0.09], 13);
-    let marker = L.marker([51.5, -0.09]).addTo(map);
-    const lc = new Locate();
-    L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          'pk.eyJ1IjoibHljaHJpc3RvcGhlcmMiLCJhIjoiY2wxeHE0Y20wMDU5YjNmbWtrZTBkNnNzdyJ9.7VuIvPdDXVvlN4I5UOll-Q',
-      }
-    ).addTo(map);
-
-    lc.addTo(map);
-  }
-  render() {
-    return <div id="map" />;
-  }
+export default function App() {
+  return (
+    <MapContainer center={[37.0902, -95.7129]} zoom={4} scrollWheelZoom>
+      <TileLayer
+        attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+        url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHljaHJpc3RvcGhlcmMiLCJhIjoiY2wxeHE0Y20wMDU5YjNmbWtrZTBkNnNzdyJ9.7VuIvPdDXVvlN4I5UOll-Q"
+        id="mapbox/streets-v11"
+      />
+      <LocationMarker />
+    </MapContainer>
+  );
 }
-export default Map;
 
+// VERSION 2 *********************** GEO WORKS
+// import React from 'react';
+// import L from 'leaflet';
+// import Locate from 'leaflet.locatecontrol';
+
+// class Map extends React.Component {
+//   componentDidMount() {
+//     // Create map using mapbox tile layer. Replace Access Token with your access token.
+//     let map = L.map('map').setView([51.505, -0.09], 13);
+//     let marker = L.marker([51.5, -0.09]).addTo(map);
+//     const lc = new Locate();
+//     L.tileLayer(
+//       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+//       {
+//         attribution:
+//           'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//         maxZoom: 18,
+//         id: 'mapbox/streets-v11',
+//         tileSize: 512,
+//         zoomOffset: -1,
+//         accessToken:
+//           'pk.eyJ1IjoibHljaHJpc3RvcGhlcmMiLCJhIjoiY2wxeHE0Y20wMDU5YjNmbWtrZTBkNnNzdyJ9.7VuIvPdDXVvlN4I5UOll-Q',
+//       }
+//     ).addTo(map);
+
+//     lc.addTo(map);
+//   }
+//   render() {
+//     return <div id="map" />;
+//   }
+// }
+// export default Map;
+
+// VERSION 1 *********************
 // import React, { useEffect, useRef } from 'react';
 // import reactDom from 'react-dom';
 // import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
