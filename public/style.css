@@ -1,3 +1,13 @@
-div {
+/* div {
   border-style: solid;
+} */
+
+.leaflet-container {
+  width: 98vw;
+  height: 80vw;
 }
+
+/* #map {
+  width: 98vw;
+  height: 80vw;
+} */

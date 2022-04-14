@@ -12,12 +12,59 @@
 
     <!-- Give your app a swell name -->
     <title>Not sure what app this is yet...</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <!-- <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script> -->
+
     <link rel="stylesheet" href="./style.css" />
     <!-- Our js bundle will be in 'bundle.js' -->
     <!-- The 'defer' attribute will ensure that it is run only after the DOM finishes loading -->
     <script src="/bundle.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"
+    />
   </head>
   <body>
+    <!-- <div id="map"></div>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"
+      charset="utf-8"
+    ></script>
+    <script>
+      var map = L.map('map').setView([51.505, -0.09], 13);
+      let marker = L.marker([51.5, -0.09]).addTo(map);
+
+      L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            'pk.eyJ1IjoibHljaHJpc3RvcGhlcmMiLCJhIjoiY2wxeHE0Y20wMDU5YjNmbWtrZTBkNnNzdyJ9.7VuIvPdDXVvlN4I5UOll-Q',
+        }
+      ).addTo(map);
+
+      L.control.locate().addTo(map);
+    </script> -->
     <!-- We will render our React app into a div with an id of 'app' -->
     <!-- We can grab it off the DOM by saying document.getElementById('app'); -->
     <div id="app"></div>
